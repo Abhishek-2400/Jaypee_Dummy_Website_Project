@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let info = parseInt(prompt("write any number"));
+
+    while (isNaN(info)) {
+        info = parseInt(prompt("write any number"));
+
+    }
+
+    let gen_num = Math.floor(Math.random() * info) + 1;
+
+    let my_num = parseInt(prompt("enter your first guess"));
+
+    let count = 1;
+    let flag = 1;
+    while (my_num != gen_num && count <= 5) {
+        if (my_num > gen_num) {
+            my_num = parseInt(prompt("sorry!!! enter again number large"));
+            count++;
+            console.log(count);
+        }
+        else if (my_num < gen_num) {
+            my_num = parseInt(prompt("sorry!!! enter again number small"));
+            count++;
+            console.log(count);
+        }
+        else {
+            flag = 0;
+            break;
+        }
+    }
+
+
+    if (flag == 0)
+        console.log("you wom :)");
+    else
+        console.log("you lost");
+
+
+</script>
+
+</html>

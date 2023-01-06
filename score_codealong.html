@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1><span id="h1">0</span> to <span id="h2">0</span> </h1>
+
+    <select id="score">
+        <option>5</option>;
+        <option>10</option>;
+        <option>3</option>;
+    </select>
+
+    <button id="b1">Player 1</button>
+    <button id="b2">Player 2</button>
+    <button id="b3">Reset</button>
+
+
+</body>
+
+<script>
+    const b1 = document.querySelector('#b1');
+    const b2 = document.querySelector('#b2');
+    const b3 = document.querySelector('#b3');
+    const score = document.querySelector('#score');
+    let c = 0;
+
+    const h1 = document.querySelector('#h1');
+    const h2 = document.querySelector('#h2');
+
+    score.addEventListener('change', function () {
+        c = parseInt(this.value);
+    })
+
+
+
+    b1.addEventListener('click', function () {
+
+        const a = parseInt(h1.innerHTML);
+        const b = parseInt(h2.innerHTML);
+
+        console.log(c);
+
+        if (a < c && b < c) {
+            h1.innerHTML = a + 1;
+            if (parseInt(h1.innerHTML) == c) {
+                h1.style.color = 'green';
+                if (b < c) {
+                    h2.style.color = 'red';
+                }
+            }
+
+        }
+
+
+    })
+
+
+
+    b2.addEventListener('click', function () {
+
+
+        const b = parseInt(h2.innerHTML);
+        const a = parseInt(h1.innerHTML);
+
+        if (b < c && a < c) {
+            h2.innerHTML = b + 1;
+            if (parseInt(h2.innerHTML) == c) {
+                h2.style.color = 'green';
+                if (a < c) {
+                    h1.style.color = 'red';
+                }
+            }
+
+        }
+
+
+    })
+
+
+    b3.addEventListener('click', function () {
+
+        h1.innerHTML = 0;
+        h2.innerHTML = 0;
+        h2.style.color = 'black';
+        h1.style.color = 'black';
+
+
+    })
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>hello</h1>
+    <button class="click">click me</button>
+    <button class="click">click me</button>
+    <button class="click">click me</button>
+    <button class="click">click me</button>
+    <button class="click">click me</button>
+
+
+</body>
+<script>
+
+    function makerand() {
+        const r = Math.floor(Math.random() * 255);
+        const g = Math.floor(Math.random() * 255);
+        const b = Math.floor(Math.random() * 255);
+        const a = `rgb(${r}, ${g}, ${b})`;
+        return a;
+    }
+    function colorize() {
+
+        this.style.backgroundColor = makerand();
+        this.style.color = makerand();
+    }
+
+    const but = document.querySelectorAll('button');
+    const head = document.querySelector('h1');
+
+    for (let button of but) {
+        button.addEventListener('click', colorize);
+    }
+
+    head.addEventListener('click', function () {
+        document.body.style.backgroundColor = makerand();
+    })
+
+
+
+</script>
+
+</html>
